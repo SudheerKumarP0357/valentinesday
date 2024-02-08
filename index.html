@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Valentines Day Proposal</title>
+    <link
+      rel="shortcut icon"
+      href="./images/faviocn.png"
+      type="images/x-icon"
+    />
+    <style>
+      * {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+          'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        box-sizing: border-box;
+        margin: 0;
+      }
+      body {
+        background-image: url(/images/faviocn.png);
+        object-fit: contain;
+      }
+      .header {
+        text-align: center;
+        background: rgba(255, 255, 255, 0.9);
+      }
+      .header h1 {
+        color: black;
+      }
+      .love {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .love .btn {
+        width: 75px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        margin-top: 20px;
+      }
+      .btn button {
+        margin: 10%;
+        border-radius: 10px;
+        border: white solid;
+        padding: 10% 20%;
+        font-weight: 700;
+        font-size: 15px;
+      }
+      .btn button:first-child {
+        background-color: green;
+        color: white;
+      }
+      .btn button:last-child {
+        background-color: red;
+        color: white;
+      }
+      .loveAccepted {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        margin: 25% 50%;
+      }
+      .loveYou {
+        display: none;
+        background-color: aliceblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Will you be my Valentine💓 ?</h1>
+    </div>
+    <div class="love">
+      <img class="loveBefore" src="/images/love.gif" alt="love request" />
+      <img src="/images/kiss.gif" alt="love Accepted" class="loveAccepted" />
+      <div class="btn">
+        <button id="yes" class="yes" onclick="loveAccepted()">Yes</button>
+        <button id="no" class="no" onclick="loveRejected()">No</button>
+      </div>
+      <div class="loveYou">
+        <h1>I Love You 💓😘</h1>
+      </div>
+    </div>
+    <script>
+      function loveAccepted() {
+        let loveAcceptedImg = document.querySelector('.loveAccepted')
+        let loveBeforeImg = document.querySelector('.loveBefore')
+        let btnDiv = document.querySelector('.btn')
+        let header = document.querySelector('.header')
+        let loveYou = document.querySelector('.loveYou')
+
+        loveYou.style.display = 'block'
+        header.style.display = 'none'
+
+        loveAcceptedImg.style.display = 'block'
+        loveBeforeImg.style.display = 'none'
+        btnDiv.style.display = 'none'
+      }
+
+      function loveRejected() {
+        growBigger()
+      }
+
+      function growBigger() {
+        var loveRejected = document.getElementById('no')
+        var loveAccepted = document.getElementById('yes')
+        var NoFontSize = parseInt(
+          window.getComputedStyle(loveRejected).fontSize
+        )
+        var YesFontSize = parseInt(
+          window.getComputedStyle(loveAccepted).fontSize
+        )
+
+        loveRejected.style.fontSize = NoFontSize - 1 + 'px'
+        loveAccepted.style.fontSize = YesFontSize + 1 + 'px'
+      }
+    </script>
+  </body>
+</html>
